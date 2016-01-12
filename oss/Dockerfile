@@ -35,5 +35,5 @@ ENV MAX_HEAP 768m
 ENV MIN_HEAP 256m
 ENV JAVA_OPTS -server -XX:MaxPermSize=192m -Djava.net.preferIPv4Stack=true
 ENV LAUNCHER_CONF ./conf/jetty.xml ./conf/jetty-requestlog.xml
-CMD [/bin/bash]
+CMD ["/usr/sbin/init"]
 
