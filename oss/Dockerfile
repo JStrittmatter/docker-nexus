@@ -27,8 +27,8 @@ RUN chown -R nexus /opt/sonatype/nexus-${NEXUS_VERSION}
 VOLUME ${SONATYPE_WORK}
 
 EXPOSE 8081
-WORKDIR /opt/sonatype/nexus-${NEXUS_VERSION}
+WORKDIR /opt/sonatype/nexus-${NEXUS_VERSION}/bin
 USER nexus
 
-CMD ["/opt/sonatype/nexus-${NEXUS_VERSION}/bin/nexus run"]
+CMD ["nexus", "run"]
 
