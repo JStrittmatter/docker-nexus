@@ -3,6 +3,8 @@ MAINTAINER Sonatype <cloud-ops@sonatype.com>
 
 ENV SONATYPE_WORK /sonatype-work
 ENV NEXUS_VERSION 3.0.0-b2015110601
+ENV JAVA_VERSION 8u31
+ENV BUILD_VERSION b13
 
 RUN yum install -y \
   curl tar createrepo \
@@ -11,9 +13,9 @@ RUN yum install -y \
 RUN cd /var/tmp \
   && curl --fail --silent --location --retry 3 -O \
   --header "Cookie: oraclelicense=accept-securebackup-cookie; " \
-  http://download.oracle.com/otn-pub/java/jdk/7u76-b13/jdk-7u76-linux-x64.rpm \
-  && rpm -Ui jdk-7u76-linux-x64.rpm \
-  && rm -rf jdk-7u76-linux-x64.rpm
+  http://download.oracle.com/otn-pub/java/jdk/8u31-b13/jdk-8u31-linux-x64.rpm \
+  && rpm -Ui jdk-8u31-linux-x64.rpm \
+  && rm -rf jdk-8u31-linux-x64.rpm
 
 RUN cd /var/tmp \
   && curl --fail --silent --location --retry 3 -O \
