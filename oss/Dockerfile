@@ -17,7 +17,7 @@ RUN cd /var/tmp \
 
 RUN cd /var/tmp \
   && curl --fail --silent --location --retry 3 -O \
-    https://sonatype-download.global.ssl.fastly.net/nexus/oss/nexus-${NEXUS_VERSION}-linux-rpm.rpm \
+    https://sonatype-download.global.ssl.fastly.net/nexus/oss/nexus-installer-${NEXUS_VERSION}-linux-rpm.rpm \
   && rpm -Ui nexus-${NEXUS_VERSION}-linux-rpm.rpm \
   && rm -rf nexus-${NEXUS_VERSION}-linux-rpm.rpm
 
