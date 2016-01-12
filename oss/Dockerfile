@@ -18,8 +18,8 @@ RUN cd /var/tmp \
 RUN cd /var/tmp \
   && curl --fail --silent --location --retry 3 -O \
     https://sonatype-download.global.ssl.fastly.net/nexus/oss/nexus-installer-${NEXUS_VERSION}-linux-rpm.rpm \
-  && rpm -Ui nexus-${NEXUS_VERSION}-linux-rpm.rpm \
-  && rm -rf nexus-${NEXUS_VERSION}-linux-rpm.rpm
+  && rpm -Ui nexus-installer${NEXUS_VERSION}-linux-rpm.rpm \
+  && rm -rf nexus-installer-${NEXUS_VERSION}-linux-rpm.rpm
 
 RUN useradd -r -u 200 -m -c "nexus role account" -d ${SONATYPE_WORK} -s /bin/false nexus
 
