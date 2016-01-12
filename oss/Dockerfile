@@ -22,16 +22,13 @@ RUN cd /var/tmp \
   && rm -rf nexus-installer-${NEXUS_VERSION}-linux-rpm.rpm
 
 RUN useradd -r -u 200 -m -c "nexus role account" -d ${SONATYPE_WORK} -s /bin/false nexus
+RUN chown -R nexus /opt/sonatype/nexus-${NEXUS_VERSION}
 
 VOLUME ${SONATYPE_WORK}
 
 EXPOSE 8081
-WORKDIR /opt/sonatype/nexus
+WORKDIR /opt/sonatype/nexus-${NEXUS_VERSION}
 USER nexus
-ENV CONTEXT_PATH /
-ENV MAX_HEAP 768m
-ENV MIN_HEAP 256m
-ENV JAVA_OPTS -server -XX:MaxPermSize=192m -Djava.net.preferIPv4Stack=true
-ENV LAUNCHER_CONF ./conf/jetty.xml ./conf/jetty-requestlog.xml
-CMD ["/usr/sbin/init"]
+
+CMD ["/opt/sonatype/nexus-${NEXUS_VERSION}/bin/nexus run"]
 
